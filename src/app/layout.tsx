@@ -32,7 +32,8 @@ export default function RootLayout({
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+
+        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
       >
         <LayoutComponent>{children}</LayoutComponent>
       </body>

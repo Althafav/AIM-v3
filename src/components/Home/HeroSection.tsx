@@ -42,7 +42,7 @@ export default function HeroSection({
   return (
     <div
       ref={sectionRef}
-      className=" relative h-[600px] bg-black flex items-center "
+      className=" relative h-[600px] bg-black flex items-center overflow-hidden w-full"
     >
       <div className="absolute inset-0 z-0 ">
         <video

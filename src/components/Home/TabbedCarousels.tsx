@@ -21,7 +21,7 @@ export default function TabbedCarousels() {
     <Section className="">
       {/* Tab Buttons */}
       <div className="container mx-auto">
-        <div className="flex justify-start gap-3 mb-8">
+        <div className="flex justify-start gap-3 mb-8 flex-wrap">
           {tabs.map((tab) => (
             <button
               key={tab.id}

@@ -17,7 +17,7 @@ export default function ThemeSection({
           </p>
 
           <div className="max-w-5xl mb-8">
-            <h4 className="theme-gradient-text text-3xl text-justify sm:text-5xl tracking-tighter">
+            <h4 className="theme-gradient-text text-3xl sm:text-5xl tracking-tighter">
               {themeline1} <br /> {themeline2}
             </h4>
           </div>
