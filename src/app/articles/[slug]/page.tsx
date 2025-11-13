@@ -83,8 +83,16 @@ export default async function Page({
         <Section>
           <div className="container mx-auto">
             <article className="grid grid-cols-12 gap-10">
-              <div className="col-span-12">
-                <div>
+              <div className={`col-span-8`}>
+                <div
+                  className="prose prose-gray max-w-none leading-relaxed prose-headings:scroll-mt-24 prose-h2:mt-10 prose-h2:mb-4 prose-h3:mt-8 prose-h3:mb-3 prose-img:rounded-xl prose-img:border prose-img:border-gray-200"
+                  dangerouslySetInnerHTML={{
+                    __html: pageData.elements.content.value,
+                  }}
+                />
+              </div>
+              <div className="col-span-4">
+                <div className="sticky top-5">
                   <Image
                     width={1920}
                     height={1080}
@@ -95,23 +103,8 @@ export default async function Page({
                 </div>
               </div>
 
-              <div
-                className={`col-span-12  ${
-                  pageData.elements.relateditems.linkedItems.length > 0
-                    ? "lg:col-span-8"
-                    : "lg-col-span-12"
-                }`}
-              >
-                <div
-                  className="prose prose-gray max-w-none leading-relaxed prose-headings:scroll-mt-24 prose-h2:mt-10 prose-h2:mb-4 prose-h3:mt-8 prose-h3:mb-3 prose-img:rounded-xl prose-img:border prose-img:border-gray-200"
-                  dangerouslySetInnerHTML={{
-                    __html: pageData.elements.content.value,
-                  }}
-                />
-              </div>
-
               {pageData.elements.relateditems.linkedItems.length > 0 && (
-                <aside className="col-span-12 lg:col-span-4">
+                <aside className="col-span-12">
                   <div className="rounded-2xl border border-gray-200 bg-white/60 backdrop-blur p-4">
                     <h4 className="mb-3 text-sm font-semibold tracking-tight text-gray-700">
                       Related Blogs
