@@ -38,15 +38,7 @@
     max-width: 1280px;
   }
 
-  /* 2XL */
-  @media screen and (min-width: 1400px) {
-    max-width: 1300px;
-  }
-
-  /* 3XL or custom larger breakpoint */
-  @media screen and (min-width: 1536px) {
-    max-width: 1480px;
-  }
+  
 }
 
 body {
