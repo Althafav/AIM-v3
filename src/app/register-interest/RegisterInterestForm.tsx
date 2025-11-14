@@ -95,11 +95,7 @@ export default function RegisterInterestForm({
               <input
                 type="hidden"
                 name="field[38]"
-                value={
-                  attendAs
-                    ? `AIM China 2025 - ${attendAs} RYI`
-                    : "AIM China 2025 - RYI"
-                }
+                value="AIM 2026-Register Your Interest"
               />
               <input type="hidden" name="field[328]" value={mainsource} />
               <input type="hidden" name="field[329]" value={subsource} />

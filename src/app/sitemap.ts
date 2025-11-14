@@ -3,8 +3,6 @@ import { deliveryClient, SITE_URL } from "@/modules/Globals";
 import { slugify } from "@/modules/Helper";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = SITE_URL;
-
   const blogsRes = await deliveryClient
     .item("blog_page")
     .depthParameter(3)
@@ -15,74 +13,110 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const articles = blogsData.articles_items?.linkedItems ?? [];
 
   const articleUrls = articles.map((item: any) => ({
-    url: `${baseUrl}/article/${slugify(item.elements.heading.value)}`,
+    url: `${SITE_URL}/article/${slugify(item.elements.heading.value)}`,
     lastModified: new Date(item.system.last_modified || Date.now()),
     changeFrequency: "weekly",
     priority: 0.6,
   }));
 
   const staticPages = [
-    { path: "/", priority: 1, changeFrequency: "daily" },
-    { path: "/about", priority: 0.9, changeFrequency: "monthly" },
-    { path: "/register-interest", priority: 0.9, changeFrequency: "monthly" },
-    { path: "/aim-2026", priority: 0.9, changeFrequency: "monthly" },
-    { path: "/pillars", priority: 0.8, changeFrequency: "monthly" },
+    { path: `${SITE_URL}`, priority: 1, changeFrequency: "daily" },
+    { path: `${SITE_URL}about`, priority: 0.9, changeFrequency: "monthly" },
     {
-      path: "/pillars/global-markets",
+      path: `${SITE_URL}register-interest`,
+      priority: 0.9,
+      changeFrequency: "monthly",
+    },
+    { path: `${SITE_URL}aim-2026`, priority: 0.9, changeFrequency: "monthly" },
+    { path: `${SITE_URL}/pillars`, priority: 0.8, changeFrequency: "monthly" },
+    {
+      path: `${SITE_URL}pillars/global-markets`,
       priority: 0.8,
       changeFrequency: "monthly",
     },
     {
-      path: "/pillars/future-economies",
+      path: `${SITE_URL}pillars/future-economies`,
       priority: 0.8,
       changeFrequency: "monthly",
     },
     {
-      path: "/pillars/nexgen",
+      path: `${SITE_URL}pillars/nexgen`,
       priority: 0.8,
       changeFrequency: "monthly",
     },
     {
-      path: "features-activities",
+      path: `${SITE_URL}features-activities`,
       priority: 0.8,
       changeFrequency: "monthly",
     },
     {
-      path: "features-activities/awards",
+      path: `${SITE_URL}features-activities/awards`,
       priority: 0.8,
       changeFrequency: "monthly",
     },
     {
-      path: "features-activities/conference",
+      path: `${SITE_URL}features-activities/conference`,
       priority: 0.8,
       changeFrequency: "monthly",
     },
     {
-      path: "features-activities/exhibition",
+      path: `${SITE_URL}features-activities/exhibition`,
       priority: 0.8,
       changeFrequency: "monthly",
     },
     {
-      path: "features-activities/matchmaking",
+      path: `${SITE_URL}features-activities/matchmaking`,
       priority: 0.8,
       changeFrequency: "monthly",
     },
     {
-      path: "features-activities/mou",
+      path: `${SITE_URL}features-activities/mou`,
       priority: 0.8,
       changeFrequency: "monthly",
     },
-    { path: "/open-calls", priority: 0.8, changeFrequency: "monthly" },
-    { path: "/press-releases", priority: 0.7, changeFrequency: "monthly" },
-    { path: "/knowledge-hub", priority: 0.7, changeFrequency: "monthly" },
-    { path: "/postshow-reports", priority: 0.7, changeFrequency: "monthly" },
-    { path: "/articles", priority: 0.8, changeFrequency: "weekly" },
-    { path: "/exhibitors-2025", priority: 0.7, changeFrequency: "monthly" },
-    { path: "/speakers-2025", priority: 0.7, changeFrequency: "monthly" },
-    { path: "/sponsors-2025", priority: 0.7, changeFrequency: "monthly" },
-    { path: "/our-partners", priority: 0.7, changeFrequency: "monthly" },
+    {
+      path: `${SITE_URL}open-calls`,
+      priority: 0.8,
+      changeFrequency: "monthly",
+    },
+    {
+      path: `${SITE_URL}press-releases`,
+      priority: 0.7,
+      changeFrequency: "monthly",
+    },
+    {
+      path: `${SITE_URL}knowledge-hub`,
+      priority: 0.7,
+      changeFrequency: "monthly",
+    },
+    {
+      path: `${SITE_URL}postshow-reports`,
+      priority: 0.7,
+      changeFrequency: "monthly",
+    },
+    { path: `${SITE_URL}articles`, priority: 0.8, changeFrequency: "weekly" },
+    {
+      path: `${SITE_URL}exhibitors-2025`,
+      priority: 0.7,
+      changeFrequency: "monthly",
+    },
+    {
+      path: `${SITE_URL}speakers-2025`,
+      priority: 0.7,
+      changeFrequency: "monthly",
+    },
+    {
+      path: `${SITE_URL}sponsors-2025`,
+      priority: 0.7,
+      changeFrequency: "monthly",
+    },
+    {
+      path: `${SITE_URL}our-partners`,
+      priority: 0.7,
+      changeFrequency: "monthly",
+    },
   ].map((p) => ({
-    url: `${baseUrl}${p.path}`,
+    url: `${p.path}`,
     lastModified: new Date(),
     changeFrequency:
       p.changeFrequency as MetadataRoute.Sitemap[0]["changeFrequency"],
