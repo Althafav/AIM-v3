@@ -25,7 +25,7 @@ export default function YoutubeVideoCarousel2({
   // Embla with ClassNames plugin
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
-      loop: true,
+      loop: false,
       align: "center", // center active slide
       slidesToScroll: 1,
     },
