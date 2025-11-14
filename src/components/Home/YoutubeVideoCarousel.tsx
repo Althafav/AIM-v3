@@ -3,6 +3,7 @@
 import React, { useMemo, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
+import ClassNames from 'embla-carousel-class-names'
 
 type Item =
   | { category?: string; title?: string; embed?: string }
@@ -79,7 +80,7 @@ export default function YoutubeVideoCarousel({
 }) {
   const [emblaRef] = useEmblaCarousel(
     { loop: true, align: "start", dragFree: false, containScroll: "trimSnaps" },
-    [Autoplay({ delay: 3000, stopOnInteraction: true, stopOnMouseEnter: true })]
+    [Autoplay({ delay: 3000, stopOnInteraction: true, stopOnMouseEnter: true }), ClassNames()]
   );
 
   const videos = useMemo(

@@ -127,3 +127,18 @@ body::after {
   background-clip: text;
   text-fill-color: transparent;
 }
+
+
+.embla__slide.youtube__slide {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0.4;
+  transform: scale(0.9);
+}
+
+/* This is the snapped (active/center) slide from the plugin */
+.embla__slide.is-snapped {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 1;
+}
+

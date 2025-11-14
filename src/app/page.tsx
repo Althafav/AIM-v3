@@ -9,6 +9,7 @@ import TargetAudientsSection from "@/components/Home/TargetAudientsSection";
 import TestimonialCarousel from "@/components/Home/TestimonialCarousel";
 import ThemeSection from "@/components/Home/ThemeSection";
 import YoutubeVideoCarousel from "@/components/Home/YoutubeVideoCarousel";
+import YoutubeVideoCarousel2 from "@/components/Home/YoutubeVideoCarousel2";
 import CTABlock from "@/components/UI/Blocks/CTABlock";
 import Section from "@/components/UI/Section";
 import { deliveryClient, SITE_NAME, SITE_URL } from "@/modules/Globals";
@@ -96,7 +97,7 @@ export default async function Home() {
       />
 
       <Section className="bg-white">
-        <YoutubeVideoCarousel
+        <YoutubeVideoCarousel2
           heading={pageData.youtubeheading.value}
           subheading={pageData.youtubesubheading.value}
           ctaname="View AIM Youtube"
